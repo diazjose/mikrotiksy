@@ -1,0 +1,77 @@
+{% extends 'base1.html.twig' %}
+
+{% block menuvertical %}
+
+{% endblock %}
+
+{% block body %}
+
+  
+    <div class="login-page">
+
+      <div class="container">
+    
+        <div class="form-outer d-flex align-items-center">
+       
+          <div class="form-inner">
+        
+            <div class="logo text-uppercase text-center ">
+               <span></span>
+              <strong class="text-primary">Registrate</strong>
+            </div>
+            <div class="text-center">
+              <p>Si deseas utilizar MIKRTIK, debes ser un usuario activo y tendras permiso para utilizar esta incrible herramienta de configuracion.</p>
+            </div>              
+                          
+            {{ form_start(form, {'attr' : {'id' : 'register-form'}} ) }} 
+              <div class="form-group">
+                
+                {{ form_row(form.username, {'attr' : {'id' : 'register-username'}, 'label_attr' : {'for' : 'register-username', 'class' : 'label-custom'} }) }}
+
+                </div>
+
+              <div class="form-group">
+
+                {{ form_row(form.email, {'attr' : {'id' : 'register-email'}, 'label_attr' : {'for' : 'register-email', 'class' : 'label-custom'} }) }}
+
+              </div>               
+              
+              <div class="form-group">
+
+                {{ form_row(form.plainPassword.first, {'attr' : {'id' : 'register-password-first'}, 'label_attr' : {'for' : 'register-password-first', 'class' : 'label-custom'} }) }}
+
+              </div>
+
+              <div class="form-group">
+                
+                {{ form_row(form.plainPassword.second, {'attr' : {'id' : 'register-password-second'}, 'label_attr' : {'for' : 'register-password-second', 'class' : 'label-custom'} }) }}
+              
+              </div>
+
+              
+                            
+              <div class="text-center ">
+                <input id="register" type="submit" value="Registrar" class="btn btn-primary">
+              <div>          
+            
+            {{ form_end(form) }}
+
+            <div class="text-center ">
+              <small> ¿Ya tienes una cuenta? </small>
+
+              <a href="{{ path('login') }}" class="signup">Login</a>
+            </div>
+          </div>
+          
+          <div class="copyrights text-center">
+            <p>Design by <a href="https://bootstrapious.com" class="external">Bootstrapious</a></p>
+            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+          </div>
+        
+        </div>
+      
+      </div>
+    
+    </div>
+
+{% endblock %}
