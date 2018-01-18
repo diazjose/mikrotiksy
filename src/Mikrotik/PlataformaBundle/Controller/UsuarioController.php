@@ -116,4 +116,34 @@ class UsuarioController extends Controller
         
     }
 
+    /**
+     * @Route("/direccion/update", name="update_user")
+     */
+    public function updateAction(Request $request)
+    {        
+        $id = $request->get('id');
+
+        if (!empty($id)) {
+            
+            
+            $em = $this->getDoctrine()->getManager();
+            $user = $em->getRepository("MikrotikBundle:Usuarios")->find($id);
+            
+            if ($user) {
+                
+                $user->setUsername($request->get('nombre'));
+                $user->setEmail($request->get('email'));
+                $em->persist($user);
+                $em->flush();
+
+                $this->addFlash('notice', '¡¡ Tus cambios se han guardado !!');             
+                
+            }
+
+        }
+        return $this->render('MikrotikBundle:usuarios:user_update.html.twig');       
+
+    }
+
+
 }
